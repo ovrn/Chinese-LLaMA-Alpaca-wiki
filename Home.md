@@ -1,5 +1,3 @@
-Welcome to the Chinese-LLaMA-Alpaca wiki!
-
 ## 中文文档
 ### 1. [模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型合并与转换)
   - [在线模型合并与转换（Colab）](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/在线模型合并与转换)
