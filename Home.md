@@ -18,7 +18,20 @@ Welcome to the Chinese-LLaMA-Alpaca wiki!
 
 
 ## English Docs
-- A
-- B
-- C
+
+### 1. **[Model Reconstruction](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Reconstruction)**
+  - [Online conversion with Colab](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Online-conversion-with-Colab)
+  - [Manual Conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion)
+
+### 2. **[Model Inference and Deployment](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Inference-and-Deployment)**
+  - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment)
+  - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers)
+  - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui)
+
+### 3. **[System Performance](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/System-Performance)**
+
+### 4. **[Training Details](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Training-Details)**
+
+### 5. **[FAQ](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/FAQ)**
+
 
