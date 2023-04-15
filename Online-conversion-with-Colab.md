@@ -1,8 +1,7 @@
-**经过内存优化之后，现在Colab免费用户也能在线转换7B和13B模型了！**
+**[New] After memory optimization, Colab free users can now convert 7B and 13B models online!**
 
-如果你熟悉Google Colab（如果有Pro以及更高订阅更佳），可以使用我们写好的Notebook在线合并和量化模型。
+If you are familiar with Google Colab (if you have Pro and higher subscriptions), you can use our written Notebook to combine and quantify models online.
 
-- 支持LLaMA/Alpaca模型7B和13B版本的在线转换
-- 运行结束后，可按需下载合并后的全量以及量化后的权重（也可转存自己的Google Drive）
-
-具体步骤请移步Google Colab笔记本查看和运行（`notebooks`目录下也有，供参考）：<a href="https://colab.research.google.com/drive/1Eak6azD3MLeb-YsfbP8UZC8wrL1ddIMI?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+- Support online conversion of LLaMA/Alpaca model 7B and 13B versions
+- After the run is over, you can download the combined full volume and quantized weights on demand (you can also transfer to your own Google Drive)
+- For specific steps, please move to the Google Colab notebook to view and run it (also available in the `notebooks` directory, for reference): <a href="https://colab.research.google.com/drive/1Eak6azD3MLeb-YsfbP8UZC8wrL1ddIMI?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
