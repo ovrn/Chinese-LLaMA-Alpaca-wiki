@@ -1,0 +1,58 @@
+整个训练流程包括词表扩充、预训练和指令精调三部分，其中训练代码参考了🤗transformers中的[run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)和[Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)项目中数据集处理的相关部分。
+
+### 准备工作：词表扩充
+
+由于原版LLaMA对中文的支持非常有限，本项目在原版LLaMA的基础上进一步扩充了中文词表。
+
+- 在通用中文语料上训练了基于[sentencepiece](https://github.com/google/sentencepiece)的20K中文词表并与原版LLaMA模型的32K词表进行合并
+- 排除重复的token后，得到的最终中文LLaMA词表大小为**49953**
+- 需要注意的是，在fine-tune阶段Alpaca比LLaMA多一个pad token，所以中文Alpaca的词表大小为**49954**
+
+更多关于中文词表扩充的动机，可参考[FAQ](#FAQ)。
+
+### 预训练
+
+在预训练阶段，使用约20G左右的通用中文语料（与[中文BERT-wwm](https://github.com/ymcui/Chinese-BERT-wwm)、[MacBERT](https://github.com/ymcui/MacBERT)、[LERT](https://github.com/ymcui/LERT)、[PERT](https://github.com/ymcui/PERT)中使用的语料一致）在原版LLaMA权重的基础上进一步进行预训练。该过程又分为两个阶段：
+
+1. 第一阶段：冻结transformer参数，仅训练embedding，在尽量不干扰原模型的情况下适配新增的中文词向量。
+
+2. 第二阶段：使用LoRA技术，为模型添加LoRA权重（adapter），训练embedding的同时也更新LoRA参数。
+
+### 指令精调
+
+1. 指令精调阶段的任务形式基本与[Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)相同。训练方案同样采用了LoRA进行高效精调，并进一步增加了可训练参数数量。
+2. 在prompt设计上，精调以及预测时采用的都是原版[Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca)不带input的模版。对于包含input字段的数据，采用`f"{instruction}+\n+{input}"`的形式进行拼接。
+
+### 训练数据
+
+指令精调阶段使用了以下数据，其中7B模型约2M数据、13B模型约3M数据。基本构成如下：
+
+| 数据                 | 量级 |                             来源                             | 说明                                                  |
+| -------------------- | :--: | :----------------------------------------------------------: | ----------------------------------------------------- |
+| 中英翻译数据         | 500K | [外部链接](https://github.com/brightmart/nlp_chinese_corpus#5翻译语料translation2019zh) | 在原数据集的基础上进行了采样+规则筛选                 |
+| pCLUE数据            | 300K |      [外部链接](https://github.com/CLUEbenchmark/pCLUE)      | 在原数据集的基础上进行了采样+规则筛选                 |
+| Alpaca数据（英）     | 50K  |   [外部链接](https://github.com/tatsu-lab/stanford_alpaca)   | 斯坦福原版Alpaca训练数据                              |
+| Alpaca数据（中）     | 50K  |                    **[本地链接](./data)**                    | 本项目使用ChatGPT接口将英文版翻译为中文（筛掉一部分） |
+| Self-instruction数据 | 1~2M |                           （暂无）                           | 本项目使用ChatGPT接口进行爬取，具体见以下脚本描述     |
+
+本项目提供了一个动态生成不同领域和指令类型的prompt爬取脚本`script/crawl_prompt.py`。
+
+```bash
+python script/crawl_prompt.py output-file
+```
+- 思路与[Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca#data-generation-process)中的做法基本一致，一次批量生成20组数据（可自行修改模板），以降低爬取成本
+- 生成的文件包含通过`gpt-3.5-turbo`爬取的数据（你必须拥有OpenAI API key才可以使用）
+- 虽然指令模板中要求输出JSON，但系统并不总是会返回合法的JSON，需要自行对返回数据进行清洗
+- 由于爬取时间比较长，建议后台运行该脚本。多线程运行时注意[OpenAI API的调用限制上限](https://platform.openai.com/docs/guides/rate-limits/overview)
+
+### 实验配置
+
+| 实验设置                 | 预训练-第一阶段  | 预训练-第二阶段  |     指令精调     |
+| :----------------------- | :--------------: | :--------------: | :--------------: |
+| Batch Size               |       1024       |       1024       |       512        |
+| Initial Learning Rate    |       2e-4       |       1e-4       |       1e-4       |
+| Training Steps           |        3K        |        6K        |      6K-10K      |
+| Max Length               |       512        |       512        |       512        |
+| Trainable Parameters (%) |      2.97%       |      6.06%       |      6.22%       |
+| Training Device          |     8 × A100     |    16 × A100     |    16 × A100     |
+| Distributed Training     | DeepSpeed Zero-2 | DeepSpeed Zero-2 | DeepSpeed Zero-2 |
