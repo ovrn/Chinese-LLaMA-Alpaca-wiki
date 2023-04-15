@@ -1,16 +1,16 @@
-本项目中的模型主要支持以下三种推理和部署方式：
+We mainly provide the following three ways for inference and local deployment.
 
 ### llama.cpp
-提供了一种模型量化和在本地CPU上部署方式。
+A tool for quantizing model and deploying on local CPU
 
-教程：[https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署)
+Link: [https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment)
 
 ### 🤗Transformers
-提供原生transformers推理接口，支持CPU/GPU上进行模型推理。
+Original transformers inference method, support CPU/GPU
 
-教程：[https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理)
+Link: [https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers)
 
 ### text-generation-webui
-提供了一种可实现前端UI界面的部署方式。
+A tool for deploying model as a web UI.
 
-教程：[https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面)
+Link: [https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui)
