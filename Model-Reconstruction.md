@@ -1,7 +1,6 @@
-为了将LoRA模型与原版LLaMA进行合并，目前提供了两种方式：
+In order to merge the LoRA model with the original LLaMA, two methods are currently provided:
 
-- 在线转换：适合Google Colab用户，可利用notebook进行在线转换并量化模型
-  - 教程：[https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/在线模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/在线模型合并与转换)
-
-- 手动转换：适合离线方式转换，生成不同格式的模型，以便进行量化或进一步精调
-  - 教程：[https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/手动模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/手动模型合并与转换)
+- Online conversion: suitable for Google Colab users, can use notebook for online conversion and model quantization.
+  - Link: [https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Online-conversion-with-Colab](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Online-conversion-with-Colab)
+- Manual conversion: suitable for offline conversion, generates models in different formats for quantization or further fine-tuning.
+  - Link: [https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion)
