@@ -1,6 +1,9 @@
 ### 中文文档
 - A
-- B
+- 推理与部署
+  - llama.cpp
+  - 🤗transformers
+  - text-generation-webui
 - [常见问题](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/常见问题)
 
 
