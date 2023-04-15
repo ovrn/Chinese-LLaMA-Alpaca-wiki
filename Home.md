@@ -1,11 +1,11 @@
 Welcome to the Chinese-LLaMA-Alpaca wiki!
 
 ## 中文文档
-### 1. 模型合并与转换
+### 1. [模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型合并与转换)
   - [在线模型合并与转换（Colab）](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/在线模型合并与转换)
   - [手动模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/手动模型合并与转换)
 
-### 2. 推理与部署
+### 2. [模型推理与部署](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型推理与部署)
   - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署)
   - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理)
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面)
