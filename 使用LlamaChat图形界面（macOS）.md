@@ -1,32 +1,32 @@
 LlamaChat: https://github.com/alexrozanski/LlamaChat
 
-LlamaChat提供了一种面向macOS系统的类Llama模型的交互图形界面。下面以中文Alpaca 7B模型为例介绍相应的启动步骤。
+LlamaChat provides an interactive graphical interface for LLaMA-like models on macOS systems. The following instructions demonstrate the setup process using the Chinese Alpaca 7B model as an example.
 
-### 第一步：下载最新版本的LlamaChat
+### Step 1: Download the latest version of LlamaChat
 
-选择最新版的`.dmg`文件即可。
+Choose the latest .dmg file.
 
-链接：https://github.com/alexrozanski/LlamaChat/releases
+Link: https://github.com/alexrozanski/LlamaChat/releases
 
-### 第二步：安装LlamaChat
+### Step 2: Install LlamaChat
 
-只需将LlamaChat拖入Applications即可（其他文件夹亦可）。
+Simply drag LlamaChat into the Applications folder (or any other folder).
 
 <img width="650" alt="image" src="https://user-images.githubusercontent.com/16095339/232356480-f545f93e-23f1-4b44-97d9-14c2a4722eee.png">
 
-### 第三步：配置模型
+### Step 3: Configure the model
 
-按照向导配置模型即可。在本实例中，选择Alpaca模型。
+Follow the wizard to configure the model. In this example, choose the Alpaca model.
 <img width="620" alt="image" src="https://user-images.githubusercontent.com/16095339/232356597-22e75440-576b-42a4-a2ca-3d442ab28833.png">
 
-给模型取一个名字，头像自行选择，下面的`Format`下拉列表选择PyToch格式（`.pth`扩展名）或者GGML格式（`.bin`扩展名），指定模型路径和模型大小。其中GGML格式就是llama.cpp中转换得到的模型格式，具体参考[llama.cpp转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署)。
+Name the model, choose an avatar, and select the appropriate format from the Format dropdown list: PyTorch format (.pth extension) or GGML format (.bin extension). Specify the model path and model size. The GGML format is the model format obtained from converting with llama.cpp. For more information, refer to [llama.cpp conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment).
 
 <img width="620" alt="image" src="https://user-images.githubusercontent.com/16095339/232356838-1179e76c-e19d-4ffc-afdb-d2495eb5d657.png">
 
-### 第四步：聊天交互
+### Step 4: Chat!
 
-添加模型成功之后即可和模型进行交互。点击聊天框左侧的图标可以结束当前轮次的对话（清除上下文缓存，但不删除相应的聊天记录）。
+After successfully adding the model, you can interact with it. Click on the icon to the left of the chat box to end the current round of conversation (this clears the context cache but does not delete the corresponding chat history).
 
-（提示：生成第一句话时需要加载模型，之后速度就会恢复正常了）
+(Note: Loading the model is necessary for generating the first sentence, but the speed will return to normal afterward.)
 
 <img width="1033" alt="image" src="https://user-images.githubusercontent.com/16095339/232357193-c4f5b1ac-437c-4fb3-9eb4-9a62743775d3.png">
