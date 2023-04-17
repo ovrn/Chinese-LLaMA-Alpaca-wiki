@@ -17,6 +17,6 @@ Link: [https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui]
 
 ### LlamaChat
 
-LlamaChat is a macOS app that allows you to chat with LLaMA, Alpaca, etc. Support GGML(.bin) and PyTorch (.pth) formats。
+LlamaChat is a macOS app that allows you to chat with LLaMA, Alpaca, etc. Support GGML (.bin) and PyTorch (.pth) formats。
 
 Link: [https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Using-LlamaChat-Interface](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Using-LlamaChat-Interface)
