@@ -1,6 +1,6 @@
 LlamaChat: https://github.com/alexrozanski/LlamaChat
 
-LlamaChat提供了一种面向macOS系统的类Llama模型的交互图形界面。下面以中文Alpaca 7B模型为例介绍相应的启动步骤。
+LlamaChat提供了一种面向macOS系统的类LLaMA模型的交互图形界面。下面以中文Alpaca 7B模型为例介绍相应的启动步骤。
 
 ### 第一步：下载最新版本的LlamaChat
 
