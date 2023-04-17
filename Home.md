@@ -7,6 +7,7 @@
   - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署)
   - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理)
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面)
+  - [LlamaChat](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用LlamaChat图形界面（macOS）)
 
 ### 3. [系统效果](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/系统效果)
 
@@ -25,6 +26,7 @@
   - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment)
   - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers)
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui)
+  - [LlamaChat](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Using-LlamaChat-Interface)
 
 ### 3. **[System Performance](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/System-Performance)**
 
