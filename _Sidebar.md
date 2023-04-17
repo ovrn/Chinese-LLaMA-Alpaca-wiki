@@ -20,6 +20,7 @@
   - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment)
   - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers)
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui)
+  - [LlamaChat](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Using-LlamaChat-Interface)
 - **[System Performance](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/System-Performance)**
 - **[Training Details](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Training-Details)**
 - **[FAQ](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/FAQ)**
