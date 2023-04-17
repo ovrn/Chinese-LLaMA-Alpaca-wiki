@@ -1,4 +1,4 @@
-We mainly provide the following three ways for inference and local deployment.
+We mainly provide the following ways for inference and local deployment.
 
 ### llama.cpp
 A tool for quantizing model and deploying on local CPU
