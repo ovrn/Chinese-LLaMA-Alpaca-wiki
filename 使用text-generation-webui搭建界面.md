@@ -33,7 +33,7 @@ shared.model.resize_token_embeddings(len(shared.tokenizer))
 shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)
 ```
 
-#### Step 5: 接下来就可以愉快的运行了，参考https://github.com/oobabooga/text-generation-webui/wiki/Using-LoRAs
+#### Step 5: 接下来就可以愉快的运行了，参考[webui using LoRAs](https://github.com/oobabooga/text-generation-webui/wiki/Using-LoRAs)
 ```bash
 python server.py --model llama-7b-hf --lora chinese-alpaca-lora-7b --cpu
 ```
