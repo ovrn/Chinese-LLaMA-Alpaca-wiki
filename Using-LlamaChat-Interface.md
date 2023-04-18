@@ -2,8 +2,7 @@ LlamaChat: https://github.com/alexrozanski/LlamaChat
 
 LlamaChat provides an interactive graphical interface for LLaMA-like models on macOS systems. The following instructions demonstrate the setup process using the Chinese Alpaca 7B model as an example.
 
-⚠️ 注意：LlamaChat需要macOS 13 Ventura系统，配备英特尔CPU或者Apple M系列芯片。
-LlamaChat requires macOS 13 Ventura, and either an Intel or Apple Silicon processor.
+⚠️ Warning: LlamaChat requires macOS 13 Ventura, and either an Intel or Apple Silicon processor.
 
 ### Step 1: Download the latest version of LlamaChat
 
