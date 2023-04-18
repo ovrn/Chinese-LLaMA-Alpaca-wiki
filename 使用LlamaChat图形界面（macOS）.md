@@ -2,6 +2,8 @@ LlamaChat: https://github.com/alexrozanski/LlamaChat
 
 LlamaChat提供了一种面向macOS系统的类LLaMA模型的交互图形界面。下面以中文Alpaca 7B模型为例介绍相应的启动步骤。
 
+⚠️ 注意：LlamaChat需要macOS 13 Ventura系统，配备英特尔CPU或者Apple M系列芯片。
+
 ### 第一步：下载最新版本的LlamaChat
 
 选择最新版的`.dmg`文件即可。
