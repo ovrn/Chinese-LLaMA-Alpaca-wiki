@@ -63,6 +63,8 @@ Please enter your prompt after the `>`, use `\` as the end of the line for multi
 -c controls the length of context, larger values allow for longer dialogue history to be referenced
 -ins activates the conversation mode for the ChatGPT class
 -n controls the maximum length of generated responses
+-b batch size
+-t number of threads
 --repeat_penalty controls the penalty for repeated text in the generated response
 --temp is the temperature coefficient, lower values result in less randomness in the response, and vice versa
 --top_p, top_k control the sampling parameters
