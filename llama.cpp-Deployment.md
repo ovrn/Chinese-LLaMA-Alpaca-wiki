@@ -5,9 +5,9 @@ Before running, please ensure:
 1. The model quantization process requires loading the entire unquantized model into memory, so make sure there is enough available memory (7B version requires more than 13G).
 2. When loading the quantized model (e.g., the 7B version), ensure that the available memory on the machine is greater than 4-6G (affected by context length).
 3. The system should have `make` (built-in for MacOS/Linux) or `cmake` (need to be installed separately for Windows) build tools.
-4. It is recommended to use Python 3.9 or 3.10 to build and run the [llama.cpp tool](https://github.com/ggerganov/llama.cpp) (since `sentencepiece` does not yet support 3.11).
+4. It is recommended to use Python 3.9 or 3.10 to build and run the [llama.cpp tool](https://github.com/ggerganov/llama.cpp).
 
-#### Step 1: Clone and build llama.cpp
+### Step 1: Clone and build llama.cpp
 
 Run the following commands to build the llama.cpp project, generating `./main` and `./quantize` binary files.
 
@@ -15,7 +15,7 @@ Run the following commands to build the llama.cpp project, generating `./main` a
 git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 ```
 
-#### Step 2: Generate a quantized model
+### Step 2: Generate a quantized model
 
 Depending on the type of model you want to convert (LLaMA or Alpaca), place the `tokenizer.*` files from the downloaded LoRA model package into the `zh-models` directory, and place the `params.json`  and the `consolidate.*.pth` model file obtained in the last step of [Model Reconstruction](#Model-Reconstruction) into the `zh-models/7B` directory. Note that the `.pth` model file and `tokenizer.model` are corresponding, and the `tokenizer.model` for LLaMA and Alpaca should not be mixed. The directory structure should be similar to:
 
@@ -39,7 +39,17 @@ Further quantize the FP16 model to 4-bit, and generate a quantized model file wi
 ./quantize ./zh-models/7B/ggml-model-f16.bin ./zh-models/7B/ggml-model-q4_0.bin 2
 ```
 
-#### Step 3: Load and start the model
+#### About quantization parameters
+| param | Algorithm | Speed（M1 Max） | Model Size（7B） |
+|---|---|---|---|
+| 2 | q4_0 | 58ms/token | 4.31G |
+| 3 | q4_1 | 126ms/token | 5.17G | 
+| 5（ARM only）| q4_2 | 87ms/token | 4.31G |
+
+*More details: [llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。*
+
+
+### Step 3: Load and start the model
 
 Run the `./main` binary file, with the `-m` command specifying the 4-bit quantized model (or loading the ggml-FP16 model). Below is an example of decoding parameters:
 
@@ -57,3 +67,16 @@ Please enter your prompt after the `>`, use `\` as the end of the line for multi
 --temp is the temperature coefficient, lower values result in less randomness in the response, and vice versa
 --top_p, top_k control the sampling parameters
 ```
+
+#### About prediction speed
+It is not always faster with bigger `-t`.
+The following table shows the speed with different `-t` (M1 Max chips with 8 main cores and 2 efficiency cores).
+It can be seen that the speed is the fastest when it is consistent with the number of cores, but it slows down when it exceeds this value.
+| param | Speed（7B-q4_0） | Speed（13B-q4_0） |
+|---|---|---|
+| 1 | 502ms/token | 450ms/token |
+| 2 | 109ms/token | 215ms/token |
+| 4 | 59ms/token | 111ms/token |
+| 6 | 44ms/token | 80ms/token |
+| 8 | **39ms/token** | **69ms/token** |
+| 10 | *110ms/token* | *202ms/token* | 
