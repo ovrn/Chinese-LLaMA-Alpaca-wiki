@@ -6,7 +6,7 @@
 4. [llama.cpp](https://github.com/ggerganov/llama.cpp)官方建议使用Python 3.9~3.11编译和运行该工具
 
 
-#### Step 1: 克隆和编译llama.cpp
+### Step 1: 克隆和编译llama.cpp
 
 运行以下命令对llama.cpp项目进行编译，生成`./main`和`./quantize`二进制文件。
 
@@ -14,7 +14,7 @@
 git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && make
 ```
 
-####  Step 2: 生成量化版本模型
+###  Step 2: 生成量化版本模型
 
 将[合并模型](#合并模型)（选择生成`.pth`格式模型）中最后一步生成的`tokenizer.model`文件放入`zh-models`目录下，模型文件`consolidated.*.pth`和配置文件`params.json`放入`zh-models/7B`目录下。请注意LLaMA和Alpaca的`tokenizer.model`不可混用（原因见[训练细节](#训练细节)）。目录结构类似：
 
@@ -38,9 +38,16 @@ python convert.py zh-models/7B/
 ./quantize ./zh-models/7B/ggml-model-f16.bin ./zh-models/7B/ggml-model-q4_0.bin 2
 ```
 
-此处也可以将最后一个参数改为`3`，即生成`q4_1`版本的量化权重。`q4_1`权重比`q4_0`大一些，速度慢一些，效果方面会有些许提升，具体可参考[llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。
+#### 关于量化参数（上述命令中的最后一个参数）
+| 参数 | 对应量化算法 | 推理速度（M1 Max） | 模型大小（7B） |
+|---|---|---|---|
+| 2 | q4_0 | 58ms/token | 4.31G |
+| 3 | q4_1 | 126ms/token | 5.17G | 
+| 5（ARM only）| q4_2 | 87ms/token | 4.31G |
 
-#### Step 3: 加载并启动模型
+*更多关于量化参数可参考[llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。*
+
+### Step 3: 加载并启动模型
 
 运行`./main`二进制文件，`-m`命令指定4-bit量化或FP16的GGML模型。以下是命令示例（并非最优参数）：
 
@@ -60,3 +67,16 @@ python convert.py zh-models/7B/
 --temp 温度系数，值越低回复的随机性越小，反之越大
 --top_p, top_k 控制解码采样的相关参数
 ```
+
+#### 关于量化模型预测速度
+关于速度方面，`-t`参数并不是越大越好，要根据自己的处理器进行适配。
+下表给出了M1 Max芯片（8大核2小核）的推理速度对比。
+可以看到，与核心数一致的时候速度最快，超过这个数值之后速度反而变慢。
+| 参数 | 推理速度（7B-q4_0） | 推理速度（13B-q4_0） |
+|---|---|---|
+| 1 | 502ms/token | 450ms/token |
+| 2 | 109ms/token | 215ms/token |
+| 4 | 59ms/token | 111ms/token |
+| 6 | 44ms/token | 80ms/token |
+| 8 | **39ms/token** | **69ms/token** |
+| 10 | *110ms/token* | *202ms/token* | 
