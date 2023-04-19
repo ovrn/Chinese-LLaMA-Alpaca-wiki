@@ -2,7 +2,7 @@
 - **[模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型合并与转换)**
   - [在线模型合并与转换（Colab）](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/在线模型合并与转换)
   - [手动模型合并与转换](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/手动模型合并与转换)
-- **[模型推理与部署](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型推理与部署)**
+- **[模型量化、推理、部署](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/模型推理与部署)**
   - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署)
   - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理)
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面)
@@ -16,7 +16,7 @@
 - **[Model Reconstruction](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Reconstruction)**
   - [Online conversion with Colab](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Online-conversion-with-Colab)
   - [Manual Conversion](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Manual-Conversion)
-- **[Model Inference and Deployment](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Inference-and-Deployment)**
+- **[Model Quantization, Inference and Deployment](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Model-Inference-and-Deployment)**
   - [llama.cpp](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp-Deployment)
   - [🤗transformers](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/Inference-with-Transformers)
   - [text-generation-webui](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/text-generation-webui)
