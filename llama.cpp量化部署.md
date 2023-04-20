@@ -39,13 +39,16 @@ python convert.py zh-models/7B/
 ```
 
 #### 关于量化参数（上述命令中的最后一个参数）
-| 参数 | 对应量化算法 | 推理速度（M1 Max） | 模型大小（7B） |
-|---|---|---|---|
-| 2 | q4_0 | 58ms/token | 4.31G |
-| 3 | q4_1 | 126ms/token | 5.17G | 
-| 5（ARM only）| q4_2 | 87ms/token | 4.31G |
+测试中使用了默认`-t`参数（默认值：4）。
 
-*更多关于量化参数可参考[llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。*
+| 参数 | 对应量化算法 | 推理速度（M1 Max） | 模型大小（7B） | 备注 | 
+|---|---|---|---|---|
+| 2 | q4_0 | 57ms/token | 4.31G | 默认 |
+| 3 | q4_1 | 102ms/token | 5.17G | - |
+| 5（ARM only）| q4_2 | 85ms/token | 4.31G | 实验性，需要等稳定版本 |
+| - | f16 | 88ms/token | 13.77G | 非量化版本 |
+
+*测试命令更多关于量化参数可参考[llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。*
 
 ### Step 3: 加载并启动模型
 
@@ -74,9 +77,9 @@ python convert.py zh-models/7B/
 可以看到，与核心数一致的时候速度最快，超过这个数值之后速度反而变慢。
 | 参数 | 推理速度（7B-q4_0） | 推理速度（13B-q4_0） |
 |---|---|---|
-| 1 | 502ms/token | 450ms/token |
-| 2 | 109ms/token | 215ms/token |
-| 4 | 59ms/token | 111ms/token |
+| 1 | 230ms/token | 434ms/token |
+| 2 | 110ms/token | 208ms/token |
+| 4 | 58ms/token | 111ms/token |
 | 6 | 44ms/token | 80ms/token |
-| 8 | **39ms/token** | **69ms/token** |
-| 10 | *110ms/token* | *202ms/token* | 
+| 8 | **36ms/token** | **64ms/token** |
+| 10 | *112ms/token* | *202ms/token* | 
