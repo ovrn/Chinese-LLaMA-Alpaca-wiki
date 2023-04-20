@@ -39,7 +39,7 @@ python convert.py zh-models/7B/
 ```
 
 #### 关于量化参数（上述命令中的最后一个参数）
-测试中使用了默认`-t`参数（默认值：4）。
+测试中使用了默认`-t`参数（默认值：4）。测试命令更多关于量化参数可参考[llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。
 
 | 参数 | 对应量化算法 | 推理速度（M1 Max） | 模型大小（7B） | 备注 | 
 |---|---|---|---|---|
@@ -47,8 +47,6 @@ python convert.py zh-models/7B/
 | 3 | q4_1 | 102ms/token | 5.17G | - |
 | 5（ARM only）| q4_2 | 85ms/token | 4.31G | 实验性，需要等稳定版本 |
 | - | f16 | 88ms/token | 13.77G | 非量化版本 |
-
-*测试命令更多关于量化参数可参考[llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。*
 
 ### Step 3: 加载并启动模型
 
