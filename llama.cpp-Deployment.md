@@ -40,15 +40,13 @@ Further quantize the FP16 model to 4-bit, and generate a quantized model file wi
 ```
 
 #### About quantization parameters
-Here, we use the default `-t` param (default value: 4).
-| param | Algorithm | Speed（M1 Max） | Model Size（7B） | Note |
+Here, we use the default `-t` param (default value: 4). More details: [llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。
+| Param | Algorithm | Speed（M1 Max） | Model Size（7B） | Note |
 |---|---|---|---|---|
 | 2 | q4_0 | 57ms/token | 4.31G | default |
 | 3 | q4_1 | 102ms/token | 5.17G | - |
 | 5（ARM only）| q4_2 | 85ms/token | 4.31G | experimental, under dev |
 | - | f16 | 88ms/token | 13.77G | no quantization |
-
-*More details: [llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。*
 
 
 ### Step 3: Load and start the model
@@ -74,7 +72,7 @@ Please enter your prompt after the `>`, use `\` as the end of the line for multi
 
 #### About prediction speed
 It is not always faster with bigger `-t`.
-The following table shows the speed with different `-t` (M1 Max chips with 8 main cores and 2 efficiency cores).
+The following table shows the speed with different `-t` (M1 Max chips with 8 performance cores and 2 efficiency cores).
 It can be seen that the speed is the fastest when it is consistent with the number of cores, but it slows down when it exceeds this value.
 | param | Speed（7B-q4_0） | Speed（13B-q4_0） |
 |---|---|---|
