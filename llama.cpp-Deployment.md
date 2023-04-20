@@ -40,11 +40,13 @@ Further quantize the FP16 model to 4-bit, and generate a quantized model file wi
 ```
 
 #### About quantization parameters
-| param | Algorithm | Speed（M1 Max） | Model Size（7B） |
-|---|---|---|---|
-| 2 | q4_0 | 58ms/token | 4.31G |
-| 3 | q4_1 | 126ms/token | 5.17G | 
-| 5（ARM only）| q4_2 | 87ms/token | 4.31G |
+Here, we use the default `-t` param (default value: 4).
+| param | Algorithm | Speed（M1 Max） | Model Size（7B） | Note |
+|---|---|---|---|---|
+| 2 | q4_0 | 57ms/token | 4.31G | default |
+| 3 | q4_1 | 102ms/token | 5.17G | - |
+| 5（ARM only）| q4_2 | 85ms/token | 4.31G | experimental, under dev |
+| - | f16 | 88ms/token | 13.77G | no quantization |
 
 *More details: [llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。*
 
@@ -76,9 +78,9 @@ The following table shows the speed with different `-t` (M1 Max chips with 8 mai
 It can be seen that the speed is the fastest when it is consistent with the number of cores, but it slows down when it exceeds this value.
 | param | Speed（7B-q4_0） | Speed（13B-q4_0） |
 |---|---|---|
-| 1 | 502ms/token | 450ms/token |
-| 2 | 109ms/token | 215ms/token |
-| 4 | 59ms/token | 111ms/token |
+| 1 | 230ms/token | 434ms/token |
+| 2 | 110ms/token | 208ms/token |
+| 4 | 58ms/token | 111ms/token |
 | 6 | 44ms/token | 80ms/token |
-| 8 | **39ms/token** | **69ms/token** |
-| 10 | *110ms/token* | *202ms/token* | 
+| 8 | **36ms/token** | **64ms/token** |
+| 10 | *112ms/token* | *202ms/token* | 
