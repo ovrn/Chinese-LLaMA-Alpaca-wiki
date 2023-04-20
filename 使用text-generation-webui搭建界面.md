@@ -27,7 +27,7 @@ cp loras/chinese-alpaca-lora-7b/special_tokens_map.json models/llama-7b-hf/
 cp loras/chinese-alpaca-lora-7b/tokenizer_config.json models/llama-7b-hf/
 ```
 
-#### Step 4: 修改/modules/LoRA.py文件，大约在第28行
+#### Step 4: 修改/modules/LoRA.py文件，在`PeftModel.from_pretrained`方法之前添加一行代码修改原始llama的embed_size
 ```bash
 shared.model.resize_token_embeddings(len(shared.tokenizer))
 shared.model = PeftModel.from_pretrained(shared.model, Path(f"{shared.args.lora_dir}/{lora_name}"), **params)
