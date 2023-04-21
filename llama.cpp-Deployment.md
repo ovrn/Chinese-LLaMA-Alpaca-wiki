@@ -40,13 +40,14 @@ Further quantize the FP16 model to 4-bit, and generate a quantized model file wi
 ```
 
 #### About quantization parameters
-Here, we use the default `-t` param (default value: 4). More details: [llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。
-| Param | Algorithm | Speed（M1 Max） | Model Size（7B） | Note |
-|---|---|---|---|---|
-| 2 | q4_0 | 57ms/token | 4.31G | default |
-| 3 | q4_1 | 102ms/token | 5.17G | - |
-| 5（ARM only）| q4_2 | 85ms/token | 4.31G | experimental, under dev |
-| - | f16 | 88ms/token | 13.77G | no quantization |
+Here, we use the default `-t` param (default value: 4), using Chinese Alpaca-7B with Apple M1 Max. More details: [llama.cpp#PPL](https://github.com/ggerganov/llama.cpp#perplexity-measuring-model-quality)。
+| Param | Algorithm | Speed | Model Size | PPL | Note |
+|---|---|---|---|---|---|
+| 2 | q4_0 | 57ms/token | 4.31G | 25.7 | default |
+| 3 | q4_1 | 102ms/token | 5.17G | 24.5 | - |
+| 5（ARM only）| q4_2 | 85ms/token | 4.31G | 24.8 |  experimental, under dev  |
+| 6 | q4_3 | 156ms/token | 5.17G | 22.9 | experimental, under dev  |
+| - | f16 | 88ms/token | 13.77G | 21.8 | no quantization |
 
 
 ### Step 3: Load and start the model
